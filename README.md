@@ -24,7 +24,7 @@ composer install
 
 3. Crea una nueva base de datos con tu gestor de base de datos preferido. Como sugerencia podrías crear una base de datos llamada `gallery_app`.
 
-4. Crea una copia del archivo env.example, renombralo como .env y configura las variables de entorno correspondientes, preferiblemente las variables para la conexión a la base de datos.
+4. Crea una copia del archivo `env.example`, renombralo como `.env` y configura las variables de entorno correspondientes, preferiblemente las variables para la conexión a la base de datos y la variable `FILESYSTEM_DISK` con el valor `public`.
 ```json
 APP_NAME=Gallery
 APP_ENV=local
@@ -92,12 +92,17 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 php artisan key:generate
 ```
 
-6. Ejecuta las migraciones.
+6. Crea un enlace simbólico (un atajo) a la carpeta storage.
+```bash
+php artisan storage:link
+```
+
+7. Ejecuta las migraciones.
 ```bash
 php artisan migrate
 ```
 
-7. Ejecuta el proyecto laravel.
+8. Ejecuta el proyecto laravel.
 ```bash
 php artisan serve
 ```
